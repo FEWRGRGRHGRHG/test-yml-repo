@@ -1,1 +1,48 @@
-key: value
+# MythicMobs Configuration - Ghost/Phantom Mob
+
+# Mob Definitions
+Ghost:
+  Type: PHANTOM
+  Display: '&f&lПризрак'
+  Health: 40
+  Damage: 8
+  Armor: 2
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 32
+    Silent: false
+    PreventOtherDrops: true
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - randomstroll
+  AITargetSelectors:
+  - clear
+  - attacker
+  - players
+  Equipment:
+  - AIR:4
+  - AIR:3
+  - AIR:2
+  - AIR:1
+  - AIR:0
+  Drops:
+  - PHANTOM_MEMBRANE 1-2 0.5
+  Skills:
+  - effect:blindness{duration=60} @target ~onAttack 0.3
+  - particlebox{particle=soul;amount=20;speed=0.1} @self ~onTimer:100
+
+# Spawn Configurations
+Spawns:
+  Ghost_Spawn:
+    Mob: Ghost
+    World: world
+    Biomes:
+    - PLAINS
+    - FOREST
+    - DARK_FOREST
+    Chance: 0.05
+    Priority: 1
+    Conditions:
+    - night
+    - playerwithin{distance=64}
