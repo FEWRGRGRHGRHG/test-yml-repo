@@ -30,7 +30,6 @@ Ghost:
   Skills:
   - effect:blindness{duration=60} @target ~onAttack 0.3
   - particlebox{particle=soul;amount=20;speed=0.1} @self ~onTimer:100
-
 # Chronomancer - Time Mage Mob
 Chronomancer:
   Type: EVOKER
@@ -70,13 +69,9 @@ Chronomancer:
   - effect:regeneration{duration=100;amplifier=2} @self ~onDamaged 0.25
   - particleline{particle=end_rod;amount=50;zigzag=true} @self ~onDamaged 0.25
   - sound{sound=entity.enderman.teleport;volume=1.5} @self ~onDamaged 0.25
-  # Skill 2: Time Freeze - Freezes all nearby enemies in radius
-  - effect:slowness{duration=100;amplifier=5} @PlayersInRadius{r=10} ~onTimer:200 1.0
-  - effect:mining_fatigue{duration=100;amplifier=3} @PlayersInRadius{r=10} ~onTimer:200 1.0
-  - effect:jump_boost{duration=100;amplifier=128} @PlayersInRadius{r=10} ~onTimer:200 1.0
+  # Skill 2: Time Freeze - Visual and sound effects only
   - particlesphere{particle=witch;amount=100;radius=10} @self ~onTimer:200 1.0
   - sound{sound=block.beacon.activate;volume=2.0} @self ~onTimer:200 1.0
-  - message{msg="&b&lВремя замирает вокруг Хрономанта!"} @PlayersInRadius{r=15} ~onTimer:200 1.0
   # Skill 3: Temporal Acceleration - Speeds up self and nearby allies
   - effect:speed{duration=200;amplifier=3} @self ~onTimer:300 1.0
   - effect:haste{duration=200;amplifier=2} @self ~onTimer:300 1.0
@@ -84,11 +79,8 @@ Chronomancer:
   - effect:speed{duration=200;amplifier=2} @MobsInRadius{r=15;types=EVOKER,VINDICATOR,ZOMBIE,SKELETON} ~onTimer:300 1.0
   - particleline{particle=portal;amount=30;fromorigin=true} @self ~onTimer:300 1.0
   - sound{sound=entity.illusioner.mirror_move;volume=1.5} @self ~onTimer:300 1.0
-  - message{msg="&d&lХрономант ускоряет время!"} @PlayersInRadius{r=20} ~onTimer:300 1.0
   # Additional combat effects
   - particlebox{particle=dragon_breath;amount=15;speed=0.05} @self ~onTimer:60
-  - effect:glowing{duration=40} @target ~onAttack 0.5
-
 # Spawn Configurations
 Spawns:
   Ghost_Spawn:
